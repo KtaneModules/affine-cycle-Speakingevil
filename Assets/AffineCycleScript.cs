@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -11,8 +11,8 @@ public class AffineCycleScript : MonoBehaviour {
     public TextMesh[] dialText;
     public TextMesh disp;
 
-    private string[] message = new string[100] { "ADVANCED", "ADDITION", "ALLOCATE", "ALTERING", "BINARIES", "BILLIONS", "BULKHEAD", "BULLETED", "CIPHERED", "CIRCUITS", "COMPUTER", "CONTINUE", "DECRYPTS", "DIVISION", "DISCOVER", "DISPOSAL", "ENCIPHER", "ENTRANCE", "EQUATION", "EQUIPPED", "FINISHED", "FINDINGS", "FORTRESS", "FORWARDS", "GAUNTLET", "GAMBLING", "GATHERED", "GLOOMING", "HAZARDED", "HAZINESS", "HUNKERED", "HUNTSMAN", "INDICATE", "INDIGOES", "ILLUSION", "ILLUMINE", "JIGSAWED", "JIMMYING", "JUNCTION", "JUDGMENT", "KILOWATT", "KINETICS", "KNOCKOUT", "KNUCKLED", "LIMITING", "LINEARLY", "LINKAGES", "LABELING", "MONOGRAM", "MONOTONE", "MULTIPLY", "MULLIGAN", "NANOGRAM", "NANOTUBE", "NUMBERED", "NUMERALS", "OCTANGLE", "OCTUPLES", "OBSERVED", "OBSCURED", "PROGRESS", "PROJECTS", "POSITION", "POSITIVE", "QUADRANT", "QUADRICS", "QUICKEST", "QUINTICS", "REVERSED", "REVOLVED", "ROTATION", "RELATION", "STARTING", "STANDARD", "STOPPING", "STOPWORD", "TRIGGERS", "TRIANGLE", "TOGGLING", "TOGETHER", "UNDERRUN", "UNDERLIE", "ULTIMATE", "ULTRARED", "VICINITY", "VICELESS", "VOLTAGES", "VOLATILE", "WINGDING", "WINNABLE", "WHATEVER", "WHATNOTS", "YELLOWED", "YEASAYER", "YIELDING", "YOURSELF", "ZIPPERED", "ZIGZAGGY", "ZUGZWANG", "ZYMOGRAM"};
-    private string[] response = new string[100] { "FORWARDS", "JIGSAWED", "HAZARDED", "NUMERALS", "BULLETED", "QUICKEST", "TOGETHER", "YOURSELF", "DISPOSAL", "HUNKERED", "ILLUSION", "MONOTONE", "FORTRESS", "STARTING", "VOLATILE", "GLOOMING", "KNUCKLED", "MULTIPLY", "ULTRARED", "BILLIONS", "NANOGRAM", "STANDARD", "YEASAYER", "QUINTICS", "PROJECTS", "JIMMYING", "KILOWATT", "QUADRANT", "POSITION", "LINEARLY", "ALTERING", "BINARIES", "OBSCURED", "LABELING", "JUNCTION", "VOLTAGES", "UNDERLIE", "COMPUTER", "INDICATE", "ZYMOGRAM", "ZUGZWANG", "CIPHERED", "MULLIGAN", "REVERSED", "HUNTSMAN", "NUMBERED", "POSITIVE", "ZIGZAGGY", "YELLOWED", "OCTUPLES", "GATHERED", "ROTATION", "CIRCUITS", "CONTINUE", "YIELDING", "BULKHEAD", "OBSERVED", "ILLUMINE", "EQUIPPED", "ALLOCATE", "STOPPING", "TRIGGERS", "LIMITING", "PROGRESS", "LINKAGES", "WHATEVER", "HAZINESS", "VICELESS", "TOGGLING", "MONOGRAM", "ENTRANCE", "FINISHED", "RELATION", "WINGDING", "ENCIPHER", "NANOTUBE", "QUADRICS", "DISCOVER", "DECRYPTS", "EQUATION", "OCTANGLE", "KNOCKOUT", "ZIPPERED", "UNDERRUN", "TRIANGLE", "WINNABLE", "ULTIMATE", "ADVANCED", "DIVISION", "WHATNOTS", "KINETICS", "VICINITY", "ADDITION", "GAUNTLET", "INDIGOES", "STOPWORD", "FINDINGS", "REVOLVED", "GAMBLING", "JUDGMENT" };
+    private string[] message = new string[100] { "ADVANCED", "ADDITION", "ALLOCATE", "ALLOTTED", "BINARIES", "BILLIONS", "BULKHEAD", "BULWARKS", "CIPHERED", "CIRCUITS", "COMPUTER", "COMPILER", "DECRYPTS", "DIVISION", "DISCOVER", "DISCRETE", "ENCIPHER", "ENTRANCE", "EQUATION", "EQUALISE", "FINISHED", "FINDINGS", "FORTRESS", "FORTUNES", "GAUNTLET", "GAMBLING", "GATHERED", "GATEWAYS", "HAZARDED", "HAZINESS", "HUNKERED", "HUNGRIER", "INDICATE", "INDIGOES", "ILLUSION", "ILLUDING", "JIGSAWED", "JIMMYING", "JUNCTION", "JUNCTURE", "KILOWATT", "KINETICS", "KNOCKOUT", "KNOWABLE", "LIMITING", "LINEARLY", "LINKAGES", "LINGERED", "MONOGRAM", "MONOTONE", "MULTIPLY", "MULCTING", "NANOGRAM", "NANOTUBE", "NUMBERED", "NUMERATE", "OCTANGLE", "OCTUPLES", "OBSERVED", "OBSTACLE", "PROGRESS", "PROJECTS", "POSITION", "POSITRON", "QUADRANT", "QUADRICS", "QUICKEST", "QUITTERS", "REVERSED", "REVOLVED", "ROTATION", "RELATIVE", "STARTING", "STANDARD", "STOPPING", "STOCCATA", "TRIGGERS", "TRIANGLE", "TOMOGRAM", "TOMORROW", "UNDERRUN", "UNDERLIE", "ULTIMATE", "ULTRAHOT", "VICINITY", "VICELESS", "VOLTAGES", "VOLUMING", "WINGDING", "WINNABLE", "WHATEVER", "WHATSITS", "YELLOWED", "YEASAYER", "YIELDERS", "YOURSELF", "ZIPPERED", "ZIGZAGGY", "ZUGZWANG", "ZYMOGENE"};
+    private string[] response = new string[100] { "UNDERRUN", "HAZARDED", "ENTRANCE", "ULTIMATE", "WINGDING", "YEASAYER", "YIELDERS", "JIGSAWED", "JUNCTURE", "JUNCTION", "LINEARLY", "VICINITY", "OCTANGLE", "JIMMYING", "TRIGGERS", "ILLUDING", "BULKHEAD", "BULWARKS", "TRIANGLE", "FORTUNES", "HUNGRIER", "ROTATION", "POSITION", "WINNABLE", "REVERSED", "ULTRAHOT", "QUADRICS", "OCTUPLES", "ZIPPERED", "RELATIVE", "KILOWATT", "BILLIONS", "STOPPING", "PROJECTS", "QUITTERS", "FORTRESS", "NUMERATE", "VOLUMING", "DISCRETE", "ZUGZWANG", "STOCCATA", "FINISHED", "MULTIPLY", "ENCIPHER", "MONOTONE", "COMPILER", "QUICKEST", "MULCTING", "LIMITING", "NUMBERED", "ADDITION", "YOURSELF", "DISCOVER", "DECRYPTS", "ZIGZAGGY", "STARTING", "KINETICS", "KNOCKOUT", "PROGRESS", "NANOGRAM", "GAMBLING", "QUADRANT", "REVOLVED", "DIVISION", "NANOTUBE", "TOMOGRAM", "VOLTAGES", "CIPHERED", "HAZINESS", "HUNKERED", "MONOGRAM", "FINDINGS", "STANDARD", "UNDERLIE", "OBSERVED", "GAUNTLET", "ALLOCATE", "OBSTACLE", "POSITRON", "ADVANCED", "EQUALISE", "VICELESS", "GATEWAYS", "LINKAGES", "INDICATE", "KNOWABLE", "ILLUSION", "LINGERED", "GATHERED", "EQUATION", "ZYMOGENE", "BINARIES", "INDIGOES", "ALLOTTED", "WHATSITS", "TOMORROW", "WHATEVER", "YELLOWED", "COMPUTER", "CIRCUITS" };
     private string[] ciphertext = new string[2];
     private string answer;
     private int[][] rot = new int[2][] { new int[8], new int[8]};
@@ -188,28 +188,31 @@ public class AffineCycleScript : MonoBehaviour {
         yield return null;
     }
 #pragma warning disable 414
-    private string TwitchHelpMessage = "!{0} QWERTY [Inputs letters] | !{0} cancel [Deletes inputs]";
+    private string TwitchHelpMessage = "!{0} QWERTYUI [Inputs letters] | !{0} cancel [Deletes inputs]";
 #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
-        if (Regex.IsMatch(command, @"^\s*cancel\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
+
+        if (command.ToLowerInvariant() == "cancel")
         {
-            yield return null;
             KeyPress(26);
+            yield return null;
         }
         else
         {
-            var word = Regex.Match(command, @"^\s*([QWERTYUIOPASDFGHJKLZXCVBNM, ]+)\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+            command = command.ToUpperInvariant();
+            var word = Regex.Match(command, @"^\s*([A-Z\-]+)\s*$");
             if (!word.Success)
             {
                 yield break;
             }
-            yield return null;
+            command = command.Replace(" ", string.Empty);
             foreach (char letter in command)
             {
                 KeyPress("QWERTYUIOPASDFGHJKLZXCVBNM".IndexOf(letter));
                 yield return new WaitForSeconds(0.125f);
             }
+            yield return null;
         }
     }
 }
